@@ -5,7 +5,6 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 /**
@@ -53,11 +52,18 @@ public final class QueryUtils {
             for (int i = 0; i < featureArray.length(); i++) {
                 JSONObject currentEarthquake = featureArray.getJSONObject(i);
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
-                String mag = properties.getString("mag");
+                double mag=properties.getDouble("mag");
                 String place = properties.getString("place");
-                String time = properties.getString("time");
-                EarthquakeActivity earthquakeActivity = new EarthquakeActivity(mag, place, time);
-                earthquakes.add(earthquakeActivity);
+                long time = properties.getLong("time");
+                // Extract the value for the key called "url"
+                String url = properties.getString("url");
+
+                // Create a new {@link Earthquake} object with the magnitude, location, time,
+                // and url from the JSON response.
+                EarthquakeActivity earthquake = new EarthquakeActivity(mag, place, time, url);
+
+                earthquakes.add(earthquake);
+
             }
             // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
             // build up a list of Earthquake objects with the corresponding data.

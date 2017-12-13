@@ -1,16 +1,18 @@
 package com.example.android.quakereport;
 
-
 public class EarthquakeActivity {
 
     // Name of the Android version (e.g. Gingerbread, Honeycomb, Ice Cream Sandwich)
-    private String mMagnitude;
+    private double mMagnitude;
 
     // Android version number (e.g. 2.3-2.7, 3.0-3.2.6, 4.0-4.0.4)
     private String mLocation;
 
-    // Drawable resource ID
-    private String mDate;
+    private String mUrl;
+    /**
+     * Time of the earthquake
+     */
+    private long mTimeInMilliseconds;
 
     /*
     * Create a new AndroidFlavor object.
@@ -19,17 +21,17 @@ public class EarthquakeActivity {
     * @param vLocation is the corresponding Android version number (e.g. 2.3-2.7)
     * @param image is drawable reference ID that corresponds to the Android version
     * */
-    public EarthquakeActivity(String vMagnitude, String vLocation, String vDate)
-    {
+    public EarthquakeActivity(double vMagnitude, String vLocation, long timeInMilliseconds, String url) {
         mMagnitude = vMagnitude;
         mLocation = vLocation;
-        mDate = vDate;
+        mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
     }
 
     /**
      * Get the name of the Android version
      */
-    public String getManitude() {
+    public double getManitude() {
         return mMagnitude;
     }
 
@@ -41,10 +43,17 @@ public class EarthquakeActivity {
     }
 
     /**
-     * Get the image resource ID
+     * Returns the time of the earthquake.
      */
-    public String getDate() {
-        return mDate;
+    public long getTimeInMilliseconds() {
+        return mTimeInMilliseconds;
+    }
+
+    /**
+     * Returns the website URL to find more information about the earthquake.
+     */
+    public String getUrl() {
+        return mUrl;
     }
 
 

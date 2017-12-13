@@ -15,4 +15,11 @@
 -->
 <resources>
     <string name="app_name">Quake Report</string>
+    <string name="near_the">Near the</string>
+    <string name="long_place_holder">Long placeholder location that should wrap to more than 2 lines of text</string>
+    <string name="offset">30km S of</string>
+    <string name="placeholding_date">Mar 6, 2010</string>
+    <string name="placeholding_time">3:00 PM</string>
+    <string name="placeholding_mag">8.9</string>
+
 </resources>
